@@ -1,23 +1,17 @@
-import express from "express";
-import {createConnection, getCustomRepository} from "typeorm";
+import express, {NextFunction, Request, Response} from "express";
+import {getCustomRepository} from "typeorm";
 import {UserRepository} from "./repository/UserRepository";
 
 const server = express();
 
-server.get('/', function (req, res) {
-    res.send('Hello World!')
+server.get('/', (req: Request, res: Response, next: NextFunction) => {
+    res.json({message: "hello world"})
 });
 
-server.get('/users', async function (req, res) {
+server.get('/users', async (req: Request, res: Response, next: NextFunction) => {
     const userRepository = getCustomRepository(UserRepository);
     const users = await userRepository.find();
     res.json(users);
 });
 
-createConnection().then(async connection => {
-    server.listen(3000, function () {
-        console.log('Example app listening on port 3000!')
-    });
-}).catch(error => console.log("Error: ", error));
-
-
+export default server;
