@@ -2,17 +2,17 @@ import request from "supertest";
 import server from "../../src/server";
 import {createConnection} from "typeorm";
 
-beforeAll(async (done) => {
+beforeAll(async done => {
     await createConnection();
     done()
 });
 
-describe("test all routes", () => {
-    it("GET / respond with json", done => {
+describe("Test server routes", () => {
+    it("GET / respond Hello World!", done => {
         request(server)
             .get("/")
-            .expect("Content-Type", /json/)
-            .expect({message: "hello world"})
+            .expect("Content-Type", /text\/html/)
+            .expect("Hello World!")
             .expect(200, done);
     });
 

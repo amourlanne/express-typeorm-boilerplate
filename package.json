@@ -1,7 +1,7 @@
 {
-  "name": "express-typescript-boilerplate",
+  "name": "express-typeorm-boilerplate",
   "version": "1.0.0",
-  "main": "src/server.ts",
+  "main": "src/index.ts",
   "author": "Alexis Mourlanne",
   "license": "MIT",
   "scripts": {
@@ -9,8 +9,8 @@
     "start": "ts-node src/index.ts",
     "build": "webpack --mode production",
     "serve": "node build/index.js",
-    "lint": "eslint --ext .js,.ts ./src",
-    "test": "jest ./test",
+    "lint": "eslint --ext .js,.ts ./src ./tests",
+    "test": "jest ./tests",
     "migration:generate": "ts-node ./node_modules/typeorm/cli migration:generate -n",
     "migration": "ts-node ./node_modules/typeorm/cli migration:run",
     "migration:revert": "ts-node ./node_modules/typeorm/cli migration:revert",
