@@ -5,13 +5,16 @@ module.exports = {
   target: 'node',
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'ts-loader',
         },

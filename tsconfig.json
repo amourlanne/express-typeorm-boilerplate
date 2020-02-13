@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "pretty": true,
+    "sourceMap": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "allowJs": true,
@@ -21,6 +22,6 @@
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "build"
   ]
 }
